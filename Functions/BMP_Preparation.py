@@ -53,13 +53,13 @@ def importimage(file_location):         #imports image in BMP returns the gscale
               "\npadding width:\t", padding, "\nfile location:\t", file_location)
         print("\n")
 
-        # input("Press Enter to Continue")
+
 
         row = 0
         n = 0
         non_padding_counter = 0
         arrcounter = 0
-        imagearr = [[0] * image_width for i in range(image_height)]
+        imagearr = np.zeros((image_height, image_width))
         # image[col][row]
 
         while row < image_height:
@@ -80,9 +80,9 @@ def importimage(file_location):         #imports image in BMP returns the gscale
                     n = 0;
                     non_padding_counter = 0
                     arrcounter = 0
-                col += 1
+                col += 1                                        #col iterates every loop, so at the end of a row, col = image width x 3 + padding (width)
                 n += 1
-                if col == 643:  # debug stopper
+                if arrcounter == 937:  # debug stopper
                     arrcounter = arrcounter
             row += 1
             arrcounter = 0
@@ -95,20 +95,4 @@ def importimage(file_location):         #imports image in BMP returns the gscale
         # iterate through every part of the 2d list, until bottom right is at image_width * image_height
 
         mm.close()
-        np.zeros((1,1))
         return (imagearr, image_width, image_height)
-#3x3 multiplier
-def by3multi(a,b):
-    product = [[0] * 3 for i in range(3)]
-    n=0; x=0; y=0
-
-    while n<9:
-        product[y][x] = a[y][x] * b[y][x]
-
-        n += 1
-        x += 1
-        if(x==3):
-            x=0
-            y+=1
-
-    return(product)

@@ -3,61 +3,53 @@
 
 from Functions.BMP_Preparation import *
 
+def matadder(by3):
+    x=0;y=0;sum=0;p=0
+    while p < 8:
+        while x<3:
+            sum += by3[y][x]
 
-def matrixadder(mat33):
-    sum = 0
-    n = 0
-
-    while n < 9:  # image size
-        x = 0;
-        y = 0;
-        while x < 3:
-            sum += mat33[y][x]
-            if (x == 3):
-                x = 0
-                y += 1
-            x += 1
-            n += 1
-    return(sum)
-
-#may possibly only work on big-endian systems
+            x+=1
+            p+=1
+            if (x == 3) & (p != 9):
+                x=0
+                y+=1
+        print(sum)
+    return sum
 
 file_location = ["/home/dan/PyFiles/Images/redblackstripey.bmp", "/home/dan/PyFiles/Images/kobe.bmp", "/home/dan/PyFiles/Images/Testimg2.bmp"]
 
 grayimagearray, image_width, image_height = importimage(file_location[1]) #file import function, returns 2d array of the grayscale image (from importfun)
 
-tempheight = 938 #TODO replace
-tempwidth = 1251
 #               x                y
-kernel = [[4] * 3 for i in range(3)]
-buffer = [[2] * 3 for i in range(3)]
-sobelimg = [[0] * tempheight for i in range(tempwidth)] #TODO Find a way to get the height and width
-#TODO make the kernel SOBEL
-
-#             y  x        ugh, low priority TODO switch the x and y (low priority)
-#      kernel[0][3])
+kernel = np.zeros((3,3))
+buffer = np.zeros((3,3))
+sobelimg = np.zeros((image_height,image_width))
+ #the kernel ****************************************
+kernel[0][0] = 1; kernel[0][1] = 2; kernel[0][2] = 3
+kernel[1][0] = 4; kernel[1][1] = 5; kernel[1][2] = 6
+kernel[2][0] = 7; kernel[2][1] = 8; kernel[2][2] = 9
+#*****************************************************
 topy=0;topx=0;
 
 print("Begin Sobel")
-#this sobels the dude up
-while topy < tempheight -2: #image size TODO Find a way to get the image height and width
-    n = 0;x = 0;y = 0;
+#this convolves
+while topy < image_height -2:
+
+    #loading of gscale image into 3x3 buffer
+    n = 0;xbuf = 0;ybuf = 0; buffer = np.zeros((3,3));
     while n < 9:
-        buffer[y][x] = grayimagearray[topy + y][topy + x]
-        buffer2 = by3multi(buffer,kernel) #multiplies the grayscale image in the buffer by the kernel
+        buffer[ybuf][xbuf] = grayimagearray[topy + ybuf][topx + xbuf]
         n += 1
-        x += 1
-        print(tempheight)
-        if (x == 3):
-            x = 0
-            y += 1
-    sobelimg[topy+1][topx+1] = int(matrixadder(buffer2)/9)  # sums the values in the matrix
+        xbuf += 1
+        if (xbuf == 3):
+            xbuf = 0
+            ybuf += 1
+        if (n == 9):
+            mulbuf = buffer*kernel                              # kernel x image buffer
+            sobelimg[topy + 1][topx + 1] = matadder(mulbuf)     # sum of values in the product
     topx += 1
-    if topx == tempwidth-2:#image_width
-        topy +=1
-        topx = 0
 
 
-by3multi(kernel, buffer) #returns multiplication
 
 

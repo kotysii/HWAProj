@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b281c82-c897-481e-a007-c2d3e7e0b2f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Functions/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions/BMP_Preparation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/BMP_Preparation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ImportImgSegged.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImportImgSegged.py" afterDir="false" />
@@ -100,13 +101,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>42</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -117,18 +111,18 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="row" language="Python" />
-        <watch expression="imagearr" language="Python" />
-        <watch expression="len(imagearr[1])" language="Python" />
-        <watch expression="(row + 1) * bytes_wide + image_offset" language="Python" />
-        <watch expression="col" language="Python" />
-        <watch expression="non_padding_counter" language="Python" />
-        <watch expression="imagearr[1]" language="Python" />
-        <watch expression="buffer2" language="Python" />
+        <watch expression="kernel" language="Python" />
+        <watch expression="sobelimg" language="Python" />
         <watch expression="buffer" language="Python" />
+        <watch expression="topy + xbuf" language="Python" />
+        <watch expression="mulbuf" language="Python" />
         <watch expression="grayimagearray" language="Python" />
-        <watch expression="image_width" language="Python" />
-        <watch expression="image_height" language="Python" />
+        <watch expression="sum" language="Python" />
+        <watch expression="n" language="Python" />
+        <watch expression="p" />
+        <watch expression="topy" language="Python" />
+        <watch expression="topx" language="Python" />
+        <watch expression="p!=9" language="Python" />
       </configuration>
     </watches-manager>
   </component>
