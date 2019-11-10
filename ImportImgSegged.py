@@ -24,7 +24,7 @@ def matrixadder(mat33):
 
 file_location = ["/home/dan/PyFiles/Images/redblackstripey.bmp", "/home/dan/PyFiles/Images/kobe.bmp", "/home/dan/PyFiles/Images/Testimg2.bmp"]
 
-grayimagearray = importimage(file_location[1]) #file import function, returns 2d array of the grayscale image (from importfun)
+grayimagearray, image_width, image_height = importimage(file_location[1]) #file import function, returns 2d array of the grayscale image (from importfun)
 
 tempheight = 938 #TODO replace
 tempwidth = 1251

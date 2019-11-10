@@ -1,5 +1,6 @@
 import mmap
 import sys
+import numpy as np
 
 def endian_rev(bytesarr):
     list_length = len(bytesarr)  # length of the input *bytes* type in bytes
@@ -24,8 +25,8 @@ def byte_combine(bytesarr):
         arr = arr + bytesarr[i]
         i += 1
     return (arr)
-# import the image #returns a 2D array of the
-def importimage(file_location):
+
+def importimage(file_location):         #imports image in BMP returns the gscale image 2d array, height, width
     if sys.byteorder == "little":
         is_little = True
 
@@ -94,8 +95,8 @@ def importimage(file_location):
         # iterate through every part of the 2d list, until bottom right is at image_width * image_height
 
         mm.close()
-
-        return (imagearr)
+        np.zeros((1,1))
+        return (imagearr, image_width, image_height)
 #3x3 multiplier
 def by3multi(a,b):
     product = [[0] * 3 for i in range(3)]
