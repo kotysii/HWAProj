@@ -96,3 +96,16 @@ def importimage(file_location):         #imports image in BMP returns the gscale
 
         mm.close()
         return (imagearr, image_width, image_height)
+
+def matadder(by3):
+    x=0;y=0;sum=0;p=0
+    while p < 8:
+        while x<3:
+            sum += by3[y][x]
+
+            x+=1
+            p+=1
+            if (x == 3) & (p != 9):
+                x=0
+                y+=1
+    return sum
