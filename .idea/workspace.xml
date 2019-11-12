@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b281c82-c897-481e-a007-c2d3e7e0b2f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Functions/Convolution.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions/BMP_Preparation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/BMP_Preparation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ImportImgSegged.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImportImgSegged.py" afterDir="false" />
@@ -102,18 +103,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>43</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
