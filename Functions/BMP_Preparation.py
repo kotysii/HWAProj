@@ -144,3 +144,29 @@ def conv(kernel,grayimagearray,image_height,image_width):
                 topx = topx
     print("convolution complete")
     return convo
+
+def circle():
+
+    #Pre-calculated sin
+    msin = [0,1,0,-1]
+    mcos = [1,0,-1,0]
+
+    outlist = []*len(msin)
+
+    #to be added to paramaters
+    a = 0
+    b = 0
+    r = 1
+    ##########################
+
+    p=0
+    while p < len(msin):
+        coord = ( a+r*msin[p] , b+r*mcos[p] )
+        outlist.append(coord)
+        p+=1
+
+    print(outlist)
+    #end of function
+
+
+circle()

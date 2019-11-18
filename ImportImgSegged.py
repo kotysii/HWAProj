@@ -1,9 +1,11 @@
 
 from Functions.BMP_Preparation import *
+import time
 
-file_location = ["/home/dan/PyFiles/Images/redblackstripey.bmp", "/home/dan/PyFiles/Images/kobe.bmp", "/home/dan/PyFiles/Images/Testimg2.bmp"]
+start_time = time.time() #time of start
+file_location = ["/home/dan/Pictures/rbcdemo.bmp"]
 
-grayimagearray, image_width, image_height = importimage(file_location[1]) #file import function, returns 2d array of the grayscale image (from importfun)
+grayimagearray, image_width, image_height = importimage(file_location[0]) #file import function, returns 2d array of the grayscale image (from importfun)
 
 sobelx = np.zeros((3,3));
 sobelx[0][0] = -1;sobelx[0][1] = 0;sobelx[0][2] = 1
@@ -18,3 +20,5 @@ sobely[2][0] = -1;sobely[2][1] = -2;sobely[2][2] = -1
 # takes kernel, image, height, width
 xsobelled = conv(sobelx,grayimagearray, image_height, image_width)
 ysobelled = conv(sobely,grayimagearray, image_height, image_width)
+
+print("\n\nRuntime: %s seconds" %(time.time()-start_time))
