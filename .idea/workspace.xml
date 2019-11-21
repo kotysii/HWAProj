@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0b281c82-c897-481e-a007-c2d3e7e0b2f6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/BMP_Preparation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/BMP_Preparation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ImportImgSegged.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImportImgSegged.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -106,8 +105,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="13" />
+          <line>86</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -120,14 +119,9 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="rgbimg" language="Python" />
-        <watch expression="gimg" language="Python" />
-        <watch expression="rgbimg[n][m][0]" language="Python" />
-        <watch expression="rgbimg[n][m][1]" language="Python" />
-        <watch expression="rgbimg[n][m][2]" language="Python" />
-        <watch expression="rgbimg" />
-        <watch expression="int( (rgbimg[n][m][0]+rgbimg[n][m][1]+rgbimg[n][m][2])/3)" language="Python" />
-        <watch expression="rgbimg[n][m][0] + rgbimg[n][m][1] + rgbimg[n][m][2]" language="Python" />
+        <watch expression="x" language="Python" />
+        <watch expression="circle_coords" language="Python" />
+        <watch expression="y" language="Python" />
       </configuration>
     </watches-manager>
   </component>
