@@ -26,6 +26,33 @@ def byte_combine(bytesarr):
         i += 1
     return (arr)
 
+def image_props(file_location):         #imports image in BMP returns the gscale image 2d array, height, width
+    if sys.byteorder == "little":
+        is_little = True
+
+    with open(file_location, "r+b") as image:  # with statement for file opening
+
+        mm = mmap.mmap(image.fileno(),
+                       0)  # mmap.mmap(fileno, length, flags=MAP_SHARED, prot=PROT_WRITE|PROT_READ, access=ACCESS_DEFAULT[, offset]) 	fileno is the file handle of the file (image)
+
+        # **********From Header*****************
+        image_width = byte_combine(endian_rev(mm[
+                                              18:22]))  # enters the 18:22 bytes of the byte array --> endian reverser --> combine bytes into one integer
+        image_height = byte_combine(endian_rev(mm[22:26]))
+        image_offset = byte_combine(endian_rev(mm[10:14]))
+        header_image_size = byte_combine(endian_rev(mm[2:6]))
+        bits_per_px = byte_combine(endian_rev(mm[28:30]))
+        # ************Properties******************
+        image_size = mm.size()  # size of the memmap file
+        padding = image_width % 4
+        bytes_wide = image_width * 3 + padding  # byte range of a row of pixels including padding
+        row_image = image_offset + 3 * image_width  # bytes number in a row that are representative of image pixels vs padding
+        # ****************************************
+
+        mm.close()
+        return (image_width, image_height, image_offset)
+
+
 def importimage(file_location):         #imports image in BMP returns the gscale image 2d array, height, width
     if sys.byteorder == "little":
         is_little = True
@@ -82,10 +109,7 @@ def importimage(file_location):         #imports image in BMP returns the gscale
                     arrcounter = 0
                 col += 1                                        #col iterates every loop, so at the end of a row, col = image width x 3 + padding (width)
                 n += 1
-                if arrcounter == 937:  # debug stopper
-                    arrcounter = arrcounter
             row += 1
-            arrcounter = 0
 
         print("Import Successful")
         imagearr  # the product of my hardwork! A GRAYSCALED 2D LIST!
@@ -153,7 +177,7 @@ def circle(msin,mcos,a,b,r):
 
     p=0
     while p < len(msin):
-        coord = ( a+r*msin[p] , b+r*mcos[p] )
+        coord = ( int(a+r*msin[p]) , int(b+r*mcos[p]) )
         outlist.append(coord)
         p+=1
 
