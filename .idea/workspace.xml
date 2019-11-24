@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0b281c82-c897-481e-a007-c2d3e7e0b2f6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/BMP_Preparation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/BMP_Preparation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ImportImgSegged.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImportImgSegged.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -105,8 +107,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>86</line>
-          <option name="timeStamp" value="21" />
+          <line>120</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -119,9 +121,18 @@
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="x" language="Python" />
-        <watch expression="circle_coords" language="Python" />
-        <watch expression="y" language="Python" />
+        <watch expression="r" language="Python" />
+        <watch expression="rar" language="Python" />
+        <watch expression="v" language="Python" />
+        <watch expression="h" language="Python" />
+        <watch expression="poly_i" language="Python" />
+        <watch expression="len(outlist)" language="Python" />
+        <watch expression="p" language="Python" />
+        <watch expression="p" />
+        <watch expression="p-1" language="Python" />
+        <watch expression="outlist[p-1]" language="Python" />
+        <watch expression="outlist" language="Python" />
+        <watch expression="len(circle_coords)" language="Python" />
       </configuration>
     </watches-manager>
   </component>

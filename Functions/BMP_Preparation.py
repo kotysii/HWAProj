@@ -171,16 +171,20 @@ def conv(kernel,grayimagearray,image_height,image_width):
 
 def circle(msin,mcos,a,b,r):
 
-    #Pre-calculated sin
-
     outlist = []*len(msin)
 
     p=0
+    ad=0
     while p < len(msin):
         coord = ( int(a+r*msin[p]) , int(b+r*mcos[p]) )
-        outlist.append(coord)
+
+        if p == 0:                      #doesn't replicate coordinates in the case of over resolution
+            outlist.append(coord)       #so as to not return an out of range value in below
+            ad+=1
+        elif coord != outlist[ad-1]:    #if previous is the same as current, then dont append to the outlist
+            outlist.append(coord)
+            ad += 1                     #ad points to the end of the list
         p+=1
 
     return outlist
     #end of function
-
