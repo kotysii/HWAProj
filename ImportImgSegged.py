@@ -7,7 +7,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 start_time = time.time() #time of start
 file_location = ["/home/dan/DIPProj/images/rbcdemo.bmp", "/home/dan/DIPProj/images/ArtificialCircle.bmp","/home/dan/Pictures/tula.bmp","/home/dan/DIPProj/images/teste.bmp", "/home/dan/DIPProj/images/ImageProcessingDemo.bmp", "/home/dan/DIPProj/images/dot.bmp","/home/dan/DIPProj/images/artific4px.bmp"]
-usedimage = file_location[0]
+usedimage = file_location[6]
 
 image_width, image_height, image_offset = image_props(usedimage) #file import function, returns 2d array of the grayscale image (from importfun)
 
@@ -17,7 +17,7 @@ image_width, image_height, image_offset = image_props(usedimage) #file import fu
 
 ##############
 threshold = 128
-radius_range = 150
+radius_range = 3
 radius_start = 1
 ##############
 
@@ -129,23 +129,22 @@ print("\n")
 #     [[1, 1, 0], [1, 1, 1], [0, 0, 0]]
 # ])
 
-# #
-# def make_ax(grid=False):
-#     fig = plt.figure()
-#     ax = fig.gca(projection='3d')
-#     ax.set_xlabel("x")
-#     ax.set_ylabel("y")
-#     ax.set_zlabel("z")
-#     ax.grid(True)
 #
-#     return ax
-# print("Making Axes")
-# ax = make_ax(True)
-# print("Making Voxels")
-# ax.voxels(accumulator, facecolors='#1f77b430', edgecolors='gray')
-# print("Showing")
-# plt.show()
-# print("4")
+def make_ax(grid=False):
+    fig = plt.figure()
+    ax = fig.gca(projection='3d')
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.set_zlabel("z")
+    ax.grid(True)
+    return ax
+print("Making Axes")
+ax = make_ax(True)
+print("Making Voxels")
+ax.voxels(accumulator, facecolors='#1f77b430', edgecolors='gray')
+print("Showing")
+plt.show()
+print("4")
 
 # END OF 3D Maker
 
