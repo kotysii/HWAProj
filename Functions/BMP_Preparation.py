@@ -198,6 +198,7 @@ def gray_and_threshold_image_maker(image_width, image_height, rgbimg, threshold)
     thresimg = np.zeros((image_height, image_width))
     edges = [] * image_width * image_height  # becomes a list of edge points
 
+
     n = 0
     while n < image_height - 1:
         m = 0

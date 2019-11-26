@@ -6,7 +6,7 @@ from skimage.feature import peak_local_max
 
 start_time = time.time() #time of start                                             1                               2                                       3                                           4                                           5                                   6                                           7                                       8
 file_location = ["/home/dan/DIPProj/images/rbcdemo.bmp", "/home/dan/DIPProj/images/ArtificialCircle.bmp","/home/dan/Pictures/tula.bmp","/home/dan/DIPProj/images/teste.bmp", "/home/dan/DIPProj/images/ImageProcessingDemo.bmp", "/home/dan/DIPProj/images/dot.bmp","/home/dan/DIPProj/images/artific4px.bmp","/home/dan/DIPProj/images/artific4xmulti.bmp","/home/dan/DIPProj/images/artific4xmultibigger.bmp"]
-usedimage = file_location[2]
+usedimage = file_location[8]
 
 image_width, image_height, image_offset = image_props(usedimage) #file import function, returns 2d array of the grayscale image (from importfun)
 
@@ -15,13 +15,15 @@ image_width, image_height, image_offset = image_props(usedimage) #file import fu
 # cv.waitKey(0)
 
 #### Paramaters #####
-threshold = 128
+threshold = 200
 radius_range = 1
 radius_start = 20
 ### end of params ###
 
 #rgbimg[xcolumn][yrow]
 rgbimg = plt.imread(usedimage)
+
+#TODO Guassian blur the grayscale image
 
 #TODO I dont actually need this threshold image(?) if I have the list of edge point coordinates according to it? or gray_image?
 thresimg, gray_image, edges = gray_and_threshold_image_maker(image_width, image_height, rgbimg, threshold)
@@ -79,8 +81,8 @@ ax2 = fig.add_subplot(2,1,2)
 
 localmaxcoords = peak_local_max(accumulator[0][:][:], min_distance=25)
 
-#ax1.imshow(accumulator[0][:][:], cmap="gray", vmin=0, vmax=maxi)
-ax1.hist(gray_image, 5)
+ax1.imshow(accumulator[0][:][:], cmap="gray", vmin=0, vmax=maxi)
+#ax1.hist(gray_image, 5)
 ax2.imshow(gray_image,cmap="gray", vmin=0, vmax=255)
 ax2.plot(localmaxcoords[:,1],localmaxcoords[:,0], 'r.')
 
