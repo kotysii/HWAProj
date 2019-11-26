@@ -1,32 +1,34 @@
 
-from Functions.BMP_Preparation import *
+from Functions.all import *
 import time
 from matplotlib import pyplot as plt
 from skimage.feature import peak_local_max
+from scipy.ndimage import gaussian_filter
 
-start_time = time.time() #time of start                                             1                               2                                       3                                           4                                           5                                   6                                           7                                       8
-file_location = ["/home/dan/DIPProj/images/rbcdemo.bmp", "/home/dan/DIPProj/images/ArtificialCircle.bmp","/home/dan/Pictures/tula.bmp","/home/dan/DIPProj/images/teste.bmp", "/home/dan/DIPProj/images/ImageProcessingDemo.bmp", "/home/dan/DIPProj/images/dot.bmp","/home/dan/DIPProj/images/artific4px.bmp","/home/dan/DIPProj/images/artific4xmulti.bmp","/home/dan/DIPProj/images/artific4xmultibigger.bmp"]
-usedimage = file_location[8]
+start_time = time.time() #time of start                                             1                               2                                       3                                           4                                           5                                   6                                           7                                       8                                                       9
+file_location = ["/home/dan/DIPProj/images/rbcdemo.bmp", "/home/dan/DIPProj/images/ArtificialCircle.bmp","/home/dan/Pictures/tula.bmp","/home/dan/DIPProj/images/teste.bmp", "/home/dan/DIPProj/images/ImageProcessingDemo.bmp", "/home/dan/DIPProj/images/dot.bmp","/home/dan/DIPProj/images/artific4px.bmp","/home/dan/DIPProj/images/artific4xmulti.bmp","/home/dan/DIPProj/images/artific4xmultibigger.bmp","/home/dan/DIPProj/images/artificialnoise.bmp"]
+usedimage = file_location[7]
 
 image_width, image_height, image_offset = image_props(usedimage) #file import function, returns 2d array of the grayscale image (from importfun)
 
-# rgbimg = cv.imread(usedimage)
-# cv.imshow("1",rgbimg)
-# cv.waitKey(0)
+#for some reason rbcdemo returns 4 columns!!!! (rgbw?)
 
 #### Paramaters #####
-threshold = 200
+threshold = 100
 radius_range = 1
-radius_start = 20
+radius_start = 9
+circle_threshold = np.pi*radius_start # this will mean that the circle has have at least half the number of filled pixels in it's circumference
 ### end of params ###
 
 #rgbimg[xcolumn][yrow]
 rgbimg = plt.imread(usedimage)
+x=gaussian_filter(rgbimg, sigma=1)
 
-#TODO Guassian blur the grayscale image
+
 
 #TODO I dont actually need this threshold image(?) if I have the list of edge point coordinates according to it? or gray_image?
-thresimg, gray_image, edges = gray_and_threshold_image_maker(image_width, image_height, rgbimg, threshold)
+thresimg, gray_image, edges = gray_and_threshold_image_maker(image_width, image_height, x, threshold)
+
 
 #msin = [0, 1, 0, -1]
 #mcos = [1, 0, -1, 0]
@@ -38,7 +40,9 @@ msin = [0,0.0998334166468282,0.198669330795061,0.29552020666134,0.38941834230865
 mcos = [1,0.995004165278026,0.980066577841242,0.955336489125606,0.921060994002885,0.877582561890373,0.825335614909678,0.764842187284488,0.696706709347165,0.621609968270664,0.54030230586814,0.453596121425577,0.362357754476673,0.267498828624587,0.169967142900241,0.0707372016677029,-0.0291995223012888,-0.128844494295525,-0.227202094693087,-0.323289566863504,-0.416146836547142,-0.504846104599858,-0.588501117255346,-0.666276021279824,-0.737393715541246,-0.801143615546934,-0.856888753368947,-0.904072142017061,-0.942222340668658,-0.970958165149591,-0.989992496600445,-0.99913515027328,-0.998294775794753,-0.987479769908865,-0.966798192579461,-0.936456687290796,-0.896758416334147,-0.848100031710408,-0.790967711914417,-0.72593230420014,-0.653643620863612,-0.574823946533269,-0.490260821340699,-0.400799172079975,-0.307332869978419,-0.21079579943078,-0.112152526935055,-0.0123886634628906,0.0874989834394464,0.186512369422576,0.283662185463226,0.37797774271298,0.468516671300377,0.554374336179161,0.634692875942635,0.70866977429126,0.77556587851025,0.83471278483916,0.885519516941319,0.927478430744036,0.960170286650366,0.983268438442585,0.996542097023218]
 
 #   accumulator[r][h][w]
-accumulator = np.ndarray(shape=(radius_range,image_height,image_width), dtype=int)
+#accumulator = np.ndarray(shape=(radius_range,image_height,image_width), dtype=int, buffer=None)
+accumulator = np.zeros(shape=(radius_range,image_height,image_width), dtype=int)
+thresholded_accumulator = np.zeros(shape=(radius_range,image_height,image_width), dtype=int)
 circle_coords = []
 
 edgeslength = len(edges)
@@ -75,18 +79,28 @@ print("Houghed!")
 
 maxi = np.amax(accumulator) #max value in array
 
-fig = plt.figure()
-ax1 = fig.add_subplot(2,1,1)
-ax2 = fig.add_subplot(2,1,2)
 
-localmaxcoords = peak_local_max(accumulator[0][:][:], min_distance=25)
+r=0
+while r < radius_range:
+    thresholded_accumulator[r][:][:] = proportionalthreshold(accumulator[r][:][:], circle_threshold)
+    r+=1
+
+localmaxcoords = peak_local_max(thresholded_accumulator[0][:][:], min_distance=1)
+
+print("You have", len(localmaxcoords), "circles with centre points at the following coordinates:\n", localmaxcoords)
+
+fig = plt.figure()
+ax1 = fig.add_subplot(4,1,1)
+ax2 = fig.add_subplot(4,1,2)
+ax3 = fig.add_subplot(4,1,3)
+ax4 = fig.add_subplot(4,1,4)
+
 
 ax1.imshow(accumulator[0][:][:], cmap="gray", vmin=0, vmax=maxi)
-#ax1.hist(gray_image, 5)
 ax2.imshow(gray_image,cmap="gray", vmin=0, vmax=255)
 ax2.plot(localmaxcoords[:,1],localmaxcoords[:,0], 'r.')
-
-
+ax3.imshow(thresimg,cmap="gray",vmax=1)
+ax4.imshow(thresholded_accumulator[0][:][:],cmap="gray",vmax=1)
 plt.show()
 
 print("\n\nRuntime: %s seconds" %(time.time()-start_time))

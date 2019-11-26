@@ -214,3 +214,20 @@ def gray_and_threshold_image_maker(image_width, image_height, rgbimg, threshold)
         n += 1
 
     return thresimg, gimg, edges
+
+def proportionalthreshold(image, circlethreshold):
+
+    image_height,image_width = image.shape
+    outim = np.zeros((image_height,image_width))
+    n=0
+    while n<image_height:
+        m=0
+        while m<image_width:
+            if image[n][m] > circlethreshold:
+                outim[n][m] = 1
+            else:
+                outim[n][m] = 0
+            m+=1
+        n+=1
+
+    return outim
