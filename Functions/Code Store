@@ -1,0 +1,45 @@
+SOBEL OPERATOR
+
+#creates kernels for convolution
+# sobelx = np.zeros((3,3));
+# sobelx[0][0] = -1;sobelx[0][1] = 0;sobelx[0][2] = 1
+# sobelx[1][0] = -2;sobelx[1][1] = 0;sobelx[1][2] = 2
+# sobelx[2][0] = -1;sobelx[2][1] = 0;sobelx[2][2] = 1
+
+# sobely = np.zeros((3,3))
+# sobely[0][0] = 1;sobely[0][1] = 2;sobely[0][2] = 1
+# sobely[1][0] = 0;sobely[1][1] = 0;sobely[1][2] = 0
+# sobely[2][0] = -1;sobely[2][1] = -2;sobely[2][2] = -1
+
+#           #takes|kernel|image,         |height,      |width
+# xsobelled = conv(sobelx,grayimagearray, image_height, image_width)
+# ysobelled = conv(sobely,grayimagearray, image_height, image_width)
+
+
+VOXEL MAKER
+
+#   MAKES A 3D Plot #Couldnt get to work because something with my array being different to the array below? dunno bro, dunno
+# filled = np.array([
+#     [[1, 0, 1], [0, 0, 1], [0, 1, 0]],
+#     [[0, 1, 1], [1, 0, 0], [1, 0, 1]],
+#     [[1, 1, 0], [1, 1, 1], [0, 0, 0]]
+# ])
+
+#
+# def make_ax(grid=False):
+#     fig = plt.figure()
+#     ax = fig.gca(projection='3d')
+#     ax.set_xlabel("x")
+#     ax.set_ylabel("y")
+#     ax.set_zlabel("z")
+#     ax.grid(True)
+#     return ax
+# print("Making Axes")
+# ax = make_ax(True)
+# print("Making Voxels")
+# ax.voxels(accumulator, facecolors='#1f77b430', edgecolors='gray')
+# print("Showing")
+# plt.show()
+# print("4")
+
+# END OF 3D Maker
