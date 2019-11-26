@@ -188,3 +188,28 @@ def circle(msin,mcos,a,b,r):
 
     return outlist
     #end of function
+
+
+def gray_and_threshold_image_maker(image_width, image_height, rgbimg, threshold):
+    # grayscale the image with MATPLOTLIB Method
+    # also mark edge points
+
+    gimg = np.zeros((image_height, image_width))
+    thresimg = np.zeros((image_height, image_width))
+    edges = [] * image_width * image_height  # becomes a list of edge points
+
+    n = 0
+    while n < image_height - 1:
+        m = 0
+        while m < image_width - 1:
+            gimg[n][m] = int((int(rgbimg[n][m][0]) + int(rgbimg[n][m][1]) + int(rgbimg[n][m][2])) / 3)
+            if gimg[n][
+                m] < threshold:  # difference with/without threshold maker is 297/196 seconds on tula.bmp (4000x6000)
+                edges.append((m, n))
+                thresimg[n][
+                    m] = 1  # threshold maker has no sig. impact on the runtime compared to without 297 seconds, vs
+            m += 1
+            print("Thresholding:\t", int(100 * n / image_height), "%", end="\r")
+        n += 1
+
+    return thresimg, gimg, edges

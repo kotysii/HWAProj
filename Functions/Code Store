@@ -18,6 +18,8 @@ SOBEL OPERATOR
 
 VOXEL MAKER
 
+from mpl_toolkits.mplot3d import Axes3D
+
 #   MAKES A 3D Plot #Couldnt get to work because something with my array being different to the array below? dunno bro, dunno
 # filled = np.array([
 #     [[1, 0, 1], [0, 0, 1], [0, 1, 0]],

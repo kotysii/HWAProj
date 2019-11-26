@@ -2,14 +2,11 @@
 from Functions.BMP_Preparation import *
 import time
 from matplotlib import pyplot as plt
-import pickle
-from mpl_toolkits.mplot3d import Axes3D
-from scipy import ndimage as nd
 from skimage.feature import peak_local_max
 
 start_time = time.time() #time of start                                             1                               2                                       3                                           4                                           5                                   6                                           7                                       8
 file_location = ["/home/dan/DIPProj/images/rbcdemo.bmp", "/home/dan/DIPProj/images/ArtificialCircle.bmp","/home/dan/Pictures/tula.bmp","/home/dan/DIPProj/images/teste.bmp", "/home/dan/DIPProj/images/ImageProcessingDemo.bmp", "/home/dan/DIPProj/images/dot.bmp","/home/dan/DIPProj/images/artific4px.bmp","/home/dan/DIPProj/images/artific4xmulti.bmp","/home/dan/DIPProj/images/artific4xmultibigger.bmp"]
-usedimage = file_location[8]
+usedimage = file_location[2]
 
 image_width, image_height, image_offset = image_props(usedimage) #file import function, returns 2d array of the grayscale image (from importfun)
 
@@ -17,36 +14,17 @@ image_width, image_height, image_offset = image_props(usedimage) #file import fu
 # cv.imshow("1",rgbimg)
 # cv.waitKey(0)
 
-##############
+#### Paramaters #####
 threshold = 128
 radius_range = 1
 radius_start = 20
-##############
+### end of params ###
 
-rgbimg = plt.imread(usedimage)
-gimg = np.zeros((image_height,image_width))
-thresimg = np.zeros((image_height,image_width))
-edges = [] * image_width*image_height
 #rgbimg[xcolumn][yrow]
+rgbimg = plt.imread(usedimage)
 
-
-#grayscale the image with MATPLOTLIB Method
-#also mark edge points
-n=0
-while n<image_height-1:
-    m=0
-    while m<image_width-1:
-        gimg[n][m] =int( ( int(rgbimg[n][m][0]) + int(rgbimg[n][m][1]) + int(rgbimg[n][m][2]) )  /  3)
-        if gimg[n][m] < threshold:                        #difference with/without threshold maker is 297/196 seconds on tula.bmp (4000x6000)
-            edges.append((m,n))
-            thresimg[n][m] = 1 #threshold maker has no sig. impact on the runtime compared to without 297 seconds, vs
-        m+=1
-        print("Grayscaling yo:\t", int(100 * n / image_height), "%", end="\r")
-    n+=1
-
-# at point, two images made:
-# thresimg, gimg
-
+#TODO I dont actually need this threshold image(?) if I have the list of edge point coordinates according to it? or gray_image?
+thresimg, gray_image, edges = gray_and_threshold_image_maker(image_width, image_height, rgbimg, threshold)
 
 #msin = [0, 1, 0, -1]
 #mcos = [1, 0, -1, 0]
@@ -57,22 +35,24 @@ while n<image_height-1:
 msin = [0,0.0998334166468282,0.198669330795061,0.29552020666134,0.389418342308651,0.479425538604203,0.564642473395036,0.644217687237691,0.717356090899523,0.783326909627483,0.841470984807897,0.891207360061435,0.932039085967226,0.963558185417193,0.98544972998846,0.997494986604054,0.999573603041505,0.991664810452469,0.973847630878195,0.946300087687415,0.909297426825682,0.863209366648874,0.80849640381959,0.74570521217672,0.675463180551151,0.598472144103956,0.515501371821464,0.42737988023383,0.334988150155905,0.239249329213982,0.141120008059867,0.0415806624332905,-0.0583741434275801,-0.157745694143248,-0.255541102026831,-0.35078322768962,-0.442520443294852,-0.529836140908493,-0.611857890942719,-0.687766159183974,-0.756802495307928,-0.81827711106441,-0.871575772413588,-0.916165936749455,-0.951602073889516,-0.977530117665097,-0.993691003633464,-0.999923257564101,-0.996164608835841,-0.982452612624333,-0.958924274663139,-0.925814682327733,-0.883454655720153,-0.832267442223901,-0.772764487555987,-0.705540325570392,-0.631266637872322,-0.550685542597638,-0.464602179413757,-0.373876664830236,-0.279415498198926,-0.182162504272095,-0.0830894028174964]
 mcos = [1,0.995004165278026,0.980066577841242,0.955336489125606,0.921060994002885,0.877582561890373,0.825335614909678,0.764842187284488,0.696706709347165,0.621609968270664,0.54030230586814,0.453596121425577,0.362357754476673,0.267498828624587,0.169967142900241,0.0707372016677029,-0.0291995223012888,-0.128844494295525,-0.227202094693087,-0.323289566863504,-0.416146836547142,-0.504846104599858,-0.588501117255346,-0.666276021279824,-0.737393715541246,-0.801143615546934,-0.856888753368947,-0.904072142017061,-0.942222340668658,-0.970958165149591,-0.989992496600445,-0.99913515027328,-0.998294775794753,-0.987479769908865,-0.966798192579461,-0.936456687290796,-0.896758416334147,-0.848100031710408,-0.790967711914417,-0.72593230420014,-0.653643620863612,-0.574823946533269,-0.490260821340699,-0.400799172079975,-0.307332869978419,-0.21079579943078,-0.112152526935055,-0.0123886634628906,0.0874989834394464,0.186512369422576,0.283662185463226,0.37797774271298,0.468516671300377,0.554374336179161,0.634692875942635,0.70866977429126,0.77556587851025,0.83471278483916,0.885519516941319,0.927478430744036,0.960170286650366,0.983268438442585,0.996542097023218]
 
-
-accumulator = np.ndarray(shape=(radius_range,image_height,image_width), dtype=int)
 #   accumulator[r][h][w]
-
+accumulator = np.ndarray(shape=(radius_range,image_height,image_width), dtype=int)
 circle_coords = []
 
 edgeslength = len(edges)
+
 print("%s edges to evaluate, so be patient" %edgeslength)
 print("radius range of %s" %radius_range)
 
+# TODO have resolution of Sin/Cos change according to the the radius
+
+# for every radius being evaluated
 # for every edge point:
 # draw circle (circle_coords)
 #   for every coordinate in that circle
 #   set accumulator to 1
 # next edge point
-# TODO have resolution of Sin/Cos change according to the the radius
+
 i=0
 r = radius_start
 rar = 0
@@ -92,11 +72,6 @@ while rar < radius_range:
 print("Houghed!")
 
 maxi = np.amax(accumulator) #max value in array
-print("\n")
-print(maxi)
-print("\n")
-
-
 
 fig = plt.figure()
 ax1 = fig.add_subplot(2,1,1)
@@ -104,10 +79,11 @@ ax2 = fig.add_subplot(2,1,2)
 
 localmaxcoords = peak_local_max(accumulator[0][:][:], min_distance=25)
 
-ax1.imshow(accumulator[0][:][:], cmap="gray", vmin=0, vmax=maxi)
-ax1.plot(localmaxcoords[:,1],localmaxcoords[:,0], 'r.')
-ax2.imshow(rgbimg)
+#ax1.imshow(accumulator[0][:][:], cmap="gray", vmin=0, vmax=maxi)
+ax1.hist(gray_image, 5)
+ax2.imshow(gray_image,cmap="gray", vmin=0, vmax=255)
 ax2.plot(localmaxcoords[:,1],localmaxcoords[:,0], 'r.')
+
 
 plt.show()
 
