@@ -204,11 +204,9 @@ def gray_and_threshold_image_maker(image_width, image_height, rgbimg, threshold)
         m = 0
         while m < image_width - 1:
             gimg[n][m] = int((int(rgbimg[n][m][0]) + int(rgbimg[n][m][1]) + int(rgbimg[n][m][2])) / 3)
-            if gimg[n][
-                m] < threshold:  # difference with/without threshold maker is 297/196 seconds on tula.bmp (4000x6000)
+            if gimg[n][m] > threshold:  # difference with/without threshold maker is 297/196 seconds on tula.bmp (4000x6000)
                 edges.append((m, n))
-                thresimg[n][
-                    m] = 1  # threshold maker has no sig. impact on the runtime compared to without 297 seconds, vs
+                thresimg[n][m] = 1  # threshold maker has no sig. impact on the runtime compared to without 297 seconds, vs
             m += 1
             print("Thresholding:\t", int(100 * n / image_height), "%", end="\r")
         n += 1

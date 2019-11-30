@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0b281c82-c897-481e-a007-c2d3e7e0b2f6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/BMP_Preparation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/all.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ImportImgSegged.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImportImgSegged.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/ArtificialCircle.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/images/ArtificialCircle.bmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/artific4xmulti.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/images/artific4xmulti.bmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/artific4xmultibigger.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/images/artific4xmultibigger.bmp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +30,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/ImportImgSegged.py" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -106,28 +109,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>103</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Functions/all.py</url>
-          <line>219</line>
-          <option name="timeStamp" value="73" />
+          <line>115</line>
+          <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>91</line>
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>83</line>
-          <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Functions/all.py</url>
-          <line>223</line>
-          <option name="timeStamp" value="76" />
+          <line>86</line>
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -145,6 +133,15 @@
         <watch expression="image_height" language="Python" />
         <watch expression="image[n][m]&gt;circlethreshold" language="Python" />
         <watch expression="image[n][m]" language="Python" />
+        <watch expression="len(localmaxcoords)" language="Python" />
+        <watch expression="n+1" language="Python" />
+        <watch expression="localmaxcoords" language="Python" />
+        <watch expression="len(planemaxcoords)" language="Python" />
+        <watch expression="rar" language="Python" />
+        <watch expression="x1, y1" language="Python" />
+        <watch expression="planemaxcoords" language="Python" />
+        <watch expression="thresholded_accumulator" language="Python" />
+        <watch expression="localmaxcoords" language="Python" />
       </configuration>
     </watches-manager>
   </component>

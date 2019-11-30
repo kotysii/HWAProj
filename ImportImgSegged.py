@@ -6,24 +6,25 @@ from skimage.feature import peak_local_max
 from scipy.ndimage import gaussian_filter
 
 start_time = time.time() #time of start                                             1                               2                                       3                                           4                                           5                                   6                                           7                                       8                                                       9
-file_location = ["/home/dan/DIPProj/images/rbcdemo.bmp", "/home/dan/DIPProj/images/ArtificialCircle.bmp","/home/dan/Pictures/tula.bmp","/home/dan/DIPProj/images/teste.bmp", "/home/dan/DIPProj/images/ImageProcessingDemo.bmp", "/home/dan/DIPProj/images/dot.bmp","/home/dan/DIPProj/images/artific4px.bmp","/home/dan/DIPProj/images/artific4xmulti.bmp","/home/dan/DIPProj/images/artific4xmultibigger.bmp","/home/dan/DIPProj/images/artificialnoise.bmp"]
+file_location = ["/home/dan/DIPProj/images/realnoiseless.bmp", "/home/dan/DIPProj/images/ArtificialCircle.bmp","/home/dan/Pictures/tula.bmp","/home/dan/DIPProj/images/teste.bmp", "/home/dan/DIPProj/images/ImageProcessingDemo.bmp", "/home/dan/DIPProj/images/dot.bmp","/home/dan/DIPProj/images/artific4px.bmp","/home/dan/DIPProj/images/artific4xmulti.bmp","/home/dan/DIPProj/images/artific4xmultibigger.bmp","/home/dan/DIPProj/images/artificialnoise.bmp"]
 usedimage = file_location[7]
+
+#input image must have specific edge widths so as to allow for the circle threshold to be representative
 
 image_width, image_height, image_offset = image_props(usedimage) #file import function, returns 2d array of the grayscale image (from importfun)
 
-#for some reason rbcdemo returns 4 columns!!!! (rgbw?)
+#TODO need to have this work for white on black not other way around
 
 #### Paramaters #####
-threshold = 100
+threshold = 50
 radius_range = 1
-radius_start = 9
-circle_threshold = np.pi*radius_start # this will mean that the circle has have at least half the number of filled pixels in it's circumference
+radius_start = 20
+circle_threshold = int(0.3*np.pi*radius_start) # this will mean that the circle has have at least half the number of filled pixels in it's circumference
 ### end of params ###
 
 #rgbimg[xcolumn][yrow]
 rgbimg = plt.imread(usedimage)
 x=gaussian_filter(rgbimg, sigma=1)
-
 
 
 #TODO I dont actually need this threshold image(?) if I have the list of edge point coordinates according to it? or gray_image?
@@ -79,28 +80,45 @@ print("Houghed!")
 
 maxi = np.amax(accumulator) #max value in array
 
-
-r=0
-while r < radius_range:
-    thresholded_accumulator[r][:][:] = proportionalthreshold(accumulator[r][:][:], circle_threshold)
+localmaxcoords = []
+planemaxcoords = []
+r=radius_start
+rar=0
+while rar < radius_range:
+    thresholded_accumulator[rar][:][:] = gaussian_filter((proportionalthreshold(accumulator[rar][:][:], circle_threshold)), sigma=0.01)
+    planemaxcoords = peak_local_max(thresholded_accumulator[rar][:][:], min_distance=10)
+    # discounts the coordinates that are too close together
+    n=0
+    while n+1 < len(planemaxcoords):
+        y1,x1 = planemaxcoords[n]
+        y2,x2 = planemaxcoords[n+1]
+        if ( (abs(x1 - x2) > r/2) & (abs(y1-y2) > r/2) )|( n+2==len(planemaxcoords) ):
+            localmaxcoords.append([x1,y1])
+        n+=1
     r+=1
+    rar+=1
 
-localmaxcoords = peak_local_max(thresholded_accumulator[0][:][:], min_distance=1)
+
+
+#
 
 print("You have", len(localmaxcoords), "circles with centre points at the following coordinates:\n", localmaxcoords)
 
+xcoords, ycoords = zip(*localmaxcoords)
+
 fig = plt.figure()
-ax1 = fig.add_subplot(4,1,1)
-ax2 = fig.add_subplot(4,1,2)
-ax3 = fig.add_subplot(4,1,3)
-ax4 = fig.add_subplot(4,1,4)
+ax1 = fig.add_subplot(2,2,1)
+ax2 = fig.add_subplot(2,2,2)
+ax3 = fig.add_subplot(2,2,3)
+ax4 = fig.add_subplot(2,2,4)
 
 
-ax1.imshow(accumulator[0][:][:], cmap="gray", vmin=0, vmax=maxi)
-ax2.imshow(gray_image,cmap="gray", vmin=0, vmax=255)
-ax2.plot(localmaxcoords[:,1],localmaxcoords[:,0], 'r.')
-ax3.imshow(thresimg,cmap="gray",vmax=1)
+ax3.imshow(accumulator[0][:][:], cmap="gray", vmin=0, vmax=maxi)
+ax1.imshow(gray_image,cmap="gray", vmin=0, vmax=255)
+ax4.plot(xcoords,ycoords, 'r.')
+ax2.imshow(thresimg,cmap="gray",vmax=1)
 ax4.imshow(thresholded_accumulator[0][:][:],cmap="gray",vmax=1)
+plt.tight_layout()
 plt.show()
 
 print("\n\nRuntime: %s seconds" %(time.time()-start_time))
