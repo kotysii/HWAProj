@@ -1,0 +1,144 @@
+VARIABLE AND NET DATA TYPES
+
+net: 	wire, tri, supply0, supply1 	# needs continuous drive
+
+var: 	reg, int (32bit signed), 	# temporary storage
+	real, time, realtime		# only for sim, not synth
+
+
+EXAMPLE
+
+	module name(
+	input[3:0] input_name,
+	input reg[7:0] input_register,
+	output[3:0] output_name,
+	);
+
+TIME DELAY (Only sim)
+
+	#<delay>
+	#20
+
+"#" is the unit as defined in:
+
+	'timescale 10ps/1ps		#<#unit value>/<resolution>
+
+
+CONNECTING MODULES
+
+if a half_adder has the following ports "a, b, sum, carry" then to connect two one must do the following:
+
+	full_adder(...);
+
+	wire c1, c2, s1;
+	half_adder u1 ( .carry(c1), .sum(s1), .a(a), .b(b) )
+	half_adder u2 (.a(s1), .b(cin), .sum(fsum), .carry(c2)) 	# where inside paratheses is the outer modules components
+	
+.<the inner module port>(<outer module port>) i.e as it is defined in the instansiation, its saying. *my part*(to this part)
+
+
+PARAMETER
+
+can declare parameter and localparam in the declaration
+
+	module mult_acc #(parameter size =8)(...output[size-1:0] out...);	# this will make the width of the out output size-1
+
+
+SIZING NUMBERS ( <size>'<base format><number> )
+
+	sized: 3'b010 = 3-bit wide number
+	unsized: 123 = 32-bit wide decimal by default
+
+
+Formats:
+
+	Decimal 	('d or 'D)
+	Hex 		('h or 'H)
+	Bin		('b or 'B)
+	Oct		('o or 'O)
+	Signed		('s<..> or 'S<..>) e.g. 16'sh39 is 16-bit *Signed Hex*
+
+NEGATIVE NUMBER: put the "-" before the <size> e.g. -8'd3 = -3
+
+special characters: 	_ :	(blank for readibility)
+			x :	(unknown)
+			z :	(high impedance)
+
+
+ARITHMETIC OPS
+
+	+
+	-
+	*	
+	/	
+	%	Modulo
+	**	Exponent
+
+BITWISE OPS
+	
+	~	invert
+	&	AND
+	|	OR
+	^	XOR
+	^~	XNOR
+
+REDUCTION OPS (True or False)
+
+	&	AND
+	~&	NAND
+	|	OR
+	~|	NOR
+	^	XOR
+	^~	XNOR
+
+RELATIONAL OPS
+
+	>
+	<
+	>=
+	<=
+
+EQUALITY OPS
+	
+	==	Equality
+	!=	Inequality
+	===	Case Equality
+	!==	Case Inequality
+
+LOGIC OPS
+
+	!
+	&&
+	||
+
+SHIFT (for bit shifts and sign extension)
+
+	<<
+	>>
+	<<<
+	>>>
+
+MISC
+
+	?:	Conditional Test
+	{}	Concatenate
+	{{}}	Replicate {3{3'b101}} -> 9'b101101101
+
+PROCEDURAL ASSINGMENT BLOCKS
+	
+	...
+	reg f;
+	always@(x,y) begin
+		f = x & y;
+	end
+	...
+
+	also can do "intial" as well as "always"
+	these run in parallel, the everythng.
+
+Blocking vs Non Blocking
+
+	=	: blocking		Done before continuing
+	<=	: non- blocking 	All scheduled for completion at the end
+
+
