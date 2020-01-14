@@ -7,9 +7,9 @@ from skimage.feature import peak_local_max
 from scipy.ndimage import gaussian_filter
 
 
-start_time = time.time() #time of start                                             1                               2                                       3                                           4                                           5                                   6                                           7                                       8                                                       9					10
-file_location = ["/home/dan/HWAProj/images/realnoiseless.bmp", "/home/dan/HWAProj/images/ArtificialCircle.bmp","/home/dan/Pictures/tula.bmp","/home/dan/HWAProj/images/teste.bmp", "/home/dan/DIPProj/images/ImageProcessingDemo.bmp", "/home/dan/DIPProj/images/dot.bmp","/home/dan/DIPProj/images/artific4px.bmp","/home/dan/HWAProj/images/artific4xmulti.bmp","/home/dan/DIPProj/images/artific4xmultibigger.bmp","/home/dan/DIPProj/images/artificialnoise.bmp", "/home/dan/HWAProj/images/IRReportTest.png.bmp"]
-usedimage = file_location[10]
+start_time = time.time() #time of start                                             1                               2                                       3                                           4                                           5                                   6                                           7                                       8                                                       9					10						11
+file_location = ["/home/dan/HWAProj/images/realnoiseless.bmp", "/home/dan/HWAProj/images/ArtificialCircle.bmp","/home/dan/Pictures/tula.bmp","/home/dan/HWAProj/images/teste.bmp", "/home/dan/DIPProj/images/ImageProcessingDemo.bmp", "/home/dan/DIPProj/images/dot.bmp","/home/dan/DIPProj/images/artific4px.bmp","/home/dan/HWAProj/images/artific4xmulti.bmp","/home/dan/DIPProj/images/artific4xmultibigger.bmp","/home/dan/DIPProj/images/artificialnoise.bmp", "/home/dan/HWAProj/images/IRReportTest.bmp", "/home/dan/HWAProj/images/test3.bmp"]
+usedimage = file_location[11]
 
 #input image must have specific edge widths so as to allow for the circle threshold to be representative
 
@@ -18,15 +18,15 @@ image_width, image_height, image_offset = image_props(usedimage) #file import fu
 #TODO need to have this work for white on black not other way around
 
 #### Paramater #####
-threshold = 70          # grayscale threshold
+threshold = 40          # grayscale threshold
 radius_range = 1
-radius_start = 17
+radius_start = 3
 circle_threshold = int(0.5*2*np.pi*radius_start)    # this will mean that the circle has have at least half the number of filled pixels in it's circumference
 ### end of params ###
 
 #rgbimg[xcolumn][yrow]
 rgbimg = plt.imread(usedimage)
-x=gaussian_filter(rgbimg, sigma=1)
+x=gaussian_filter(rgbimg, sigma=0)
 
 thresholdstarttime = time.time() # the time of threshold
 
@@ -122,7 +122,7 @@ ax1.imshow(gray_image,cmap="gray", vmin=0, vmax=255)		#original image
 ax2.imshow(thresimg,cmap="gray",vmax=1)				#thresholded image
 ax4.imshow(thresholded_accumulator[0][:][:],cmap="gray",vmax=1)
 plt.tight_layout()
-#plt.show()
+plt.show()
 
 print("\n\nRuntime: %s seconds" %(time.time()-start_time))
 
