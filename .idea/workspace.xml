@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b281c82-c897-481e-a007-c2d3e7e0b2f6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions/all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ImportImgSegged.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImportImgSegged.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/ArtificialCircle.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/images/ArtificialCircle.bmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/artific4xmulti.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/images/artific4xmulti.bmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/artific4xmultibigger.bmp" beforeDir="false" afterPath="$PROJECT_DIR$/images/artific4xmultibigger.bmp" afterDir="false" />
-    </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="0b281c82-c897-481e-a007-c2d3e7e0b2f6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,29 +18,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1T1E7jvFXWlWGqjKuk8ILyVySCB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ImportImgSegged.py" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Functions" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="ImageImport" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -78,6 +64,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -104,18 +102,69 @@
       </map>
     </option>
   </component>
+  <component name="WindowStateProjectService">
+    <state x="255" y="205" width="426" height="477" key="FileChooserDialogImpl" timestamp="1578484581717">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="255" y="205" width="426" height="477" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1578484581717" />
+    <state width="1899" height="358" key="GridCell.Tab.0.bottom" timestamp="1578487953797">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1899" height="358" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1578487953797" />
+    <state width="1899" height="358" key="GridCell.Tab.0.center" timestamp="1578487953796">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1899" height="358" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1578487953796" />
+    <state width="1899" height="358" key="GridCell.Tab.0.left" timestamp="1578487953794">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1899" height="358" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1578487953794" />
+    <state width="1899" height="358" key="GridCell.Tab.0.right" timestamp="1578487953796">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1899" height="358" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1578487953796" />
+    <state width="1899" height="358" key="GridCell.Tab.1.bottom" timestamp="1578487957927">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1899" height="358" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1578487957927" />
+    <state width="1899" height="358" key="GridCell.Tab.1.center" timestamp="1578487957926">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1899" height="358" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1578487957926" />
+    <state width="1899" height="358" key="GridCell.Tab.1.left" timestamp="1578487957926">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1899" height="358" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1578487957926" />
+    <state width="1899" height="358" key="GridCell.Tab.1.right" timestamp="1578487957926">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1899" height="358" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1578487957926" />
+    <state x="448" y="130" key="SettingsEditor" timestamp="1578487152230">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="448" y="130" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1578487152230" />
+    <state x="1105" y="323" key="com.intellij.ide.util.TipDialog" timestamp="1578483952009">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1105" y="323" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1578483952009" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>115</line>
+          <line>126</line>
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>86</line>
-          <option name="timeStamp" value="87" />
+          <line>117</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="89" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
