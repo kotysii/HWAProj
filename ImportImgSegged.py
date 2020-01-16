@@ -95,7 +95,7 @@ while rar < radius_range:
     while n+1 < len(planemaxcoords):
         y1,x1 = planemaxcoords[n]
         y2,x2 = planemaxcoords[n+1]
-        if ( (abs(x1 - x2) > r/2) & (abs(y1-y2) > r/2) )|( n+2==len(planemaxcoords) ):
+        if ( (abs(x1 - x2) > r) | (abs(y1-y2) > r) )|( n+2==len(planemaxcoords) ):
             localmaxcoords.append([x1,y1])
         n+=1
     r+=1
@@ -107,7 +107,7 @@ while rar < radius_range:
 
 print("You have", len(localmaxcoords), "circles with centre points at the following coordinates:\n", localmaxcoords)
 
-#xcoords, ycoords = zip(*localmaxcoords)
+xcoords, ycoords = zip(*localmaxcoords)
 
 fig = plt.figure()
 ax1 = fig.add_subplot(2,2,1)
@@ -118,7 +118,7 @@ ax4 = fig.add_subplot(2,2,4)
 
 ax3.imshow(accumulator[0][:][:], cmap="gray", vmin=0, vmax=maxi) #accumulator plane
 ax1.imshow(gray_image,cmap="gray", vmin=0, vmax=255)		#original image
-#ax4.plot(xcoords,ycoords, 'r.')					#circle coords
+ax4.plot(xcoords,ycoords, 'r.')					#circle coords
 ax2.imshow(thresimg,cmap="gray",vmax=1)				#thresholded image
 ax4.imshow(thresholded_accumulator[0][:][:],cmap="gray",vmax=1)
 plt.tight_layout()

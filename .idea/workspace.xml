@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b281c82-c897-481e-a007-c2d3e7e0b2f6" name="Default Changelist" comment="" />
+    <list default="true" id="0b281c82-c897-481e-a007-c2d3e7e0b2f6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Functions/ResTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/restester.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Functions/all.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions/all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ImportImgSegged.py" beforeDir="false" afterPath="$PROJECT_DIR$/ImportImgSegged.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +33,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/restester.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -36,8 +42,8 @@
       <recent name="$PROJECT_DIR$/Functions" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="ImageImport" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.restester">
+    <configuration name="ImageImport" type="PythonConfigurationType" factoryName="Python">
       <module name="digitalimageproc" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -45,11 +51,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Functions" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ImportImgSegged.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/restester.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -58,11 +64,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.ImageImport" />
-      </list>
-    </recent_temporary>
+    <configuration name="restester" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="digitalimageproc" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/restester.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.ImageImport" />
+      <item itemvalue="Python.restester" />
+    </list>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -103,41 +129,54 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="255" y="205" width="426" height="477" key="FileChooserDialogImpl" timestamp="1578484581717">
+    <state x="416" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579173656308">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="416" y="131" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579173656308" />
+    <state x="253" y="161" width="426" height="477" key="FileChooserDialogImpl" timestamp="1579173653796">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="253" y="161" width="426" height="477" key="FileChooserDialogImpl/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579173653796" />
     <state x="255" y="205" width="426" height="477" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1578484581717" />
-    <state width="1899" height="358" key="GridCell.Tab.0.bottom" timestamp="1578487953797">
+    <state width="1899" height="289" key="GridCell.Tab.0.bottom" timestamp="1579174880707">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1899" height="289" key="GridCell.Tab.0.bottom/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579174880707" />
     <state width="1899" height="358" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1578487953797" />
-    <state width="1899" height="358" key="GridCell.Tab.0.center" timestamp="1578487953796">
+    <state width="1899" height="289" key="GridCell.Tab.0.center" timestamp="1579174880707">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1899" height="289" key="GridCell.Tab.0.center/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579174880707" />
     <state width="1899" height="358" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1578487953796" />
-    <state width="1899" height="358" key="GridCell.Tab.0.left" timestamp="1578487953794">
+    <state width="1899" height="289" key="GridCell.Tab.0.left" timestamp="1579174880707">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1899" height="289" key="GridCell.Tab.0.left/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579174880707" />
     <state width="1899" height="358" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1578487953794" />
-    <state width="1899" height="358" key="GridCell.Tab.0.right" timestamp="1578487953796">
+    <state width="1899" height="289" key="GridCell.Tab.0.right" timestamp="1579174880707">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1899" height="289" key="GridCell.Tab.0.right/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579174880707" />
     <state width="1899" height="358" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1578487953796" />
-    <state width="1899" height="358" key="GridCell.Tab.1.bottom" timestamp="1578487957927">
+    <state width="1899" height="358" key="GridCell.Tab.1.bottom" timestamp="1579174679516">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1899" height="358" key="GridCell.Tab.1.bottom/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579174679516" />
     <state width="1899" height="358" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1578487957927" />
-    <state width="1899" height="358" key="GridCell.Tab.1.center" timestamp="1578487957926">
+    <state width="1899" height="358" key="GridCell.Tab.1.center" timestamp="1579174679516">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1899" height="358" key="GridCell.Tab.1.center/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579174679516" />
     <state width="1899" height="358" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1578487957926" />
-    <state width="1899" height="358" key="GridCell.Tab.1.left" timestamp="1578487957926">
+    <state width="1899" height="358" key="GridCell.Tab.1.left" timestamp="1579174679516">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1899" height="358" key="GridCell.Tab.1.left/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579174679516" />
     <state width="1899" height="358" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1578487957926" />
-    <state width="1899" height="358" key="GridCell.Tab.1.right" timestamp="1578487957926">
+    <state width="1899" height="358" key="GridCell.Tab.1.right" timestamp="1579174679516">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state width="1899" height="358" key="GridCell.Tab.1.right/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579174679516" />
     <state width="1899" height="358" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1578487957926" />
     <state x="448" y="130" key="SettingsEditor" timestamp="1578487152230">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -147,6 +186,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1105" y="323" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1578483952009" />
+    <state x="623" y="178" width="664" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1579172939509">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="623" y="178" width="664" height="628" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1579172939509" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -162,9 +205,9 @@
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ImportImgSegged.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="89" />
+          <url>file://$PROJECT_DIR$/restester.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -175,23 +218,5 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="gray_image" language="Python" />
-        <watch expression="accumulator[0][:][:]" language="Python" />
-        <watch expression="image_height" language="Python" />
-        <watch expression="image[n][m]&gt;circlethreshold" language="Python" />
-        <watch expression="image[n][m]" language="Python" />
-        <watch expression="len(localmaxcoords)" language="Python" />
-        <watch expression="n+1" language="Python" />
-        <watch expression="localmaxcoords" language="Python" />
-        <watch expression="len(planemaxcoords)" language="Python" />
-        <watch expression="rar" language="Python" />
-        <watch expression="x1, y1" language="Python" />
-        <watch expression="planemaxcoords" language="Python" />
-        <watch expression="thresholded_accumulator" language="Python" />
-        <watch expression="localmaxcoords" language="Python" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

@@ -213,7 +213,7 @@ def gray_and_threshold_image_maker(image_width, image_height, rgbimg, threshold)
 
     return thresimg, gimg, edges
 
-def proportionalthreshold(image, circlethreshold):
+def proportionalthreshold(image, circlethreshold): # thresholds the accumulator
 
     image_height,image_width = image.shape
     outim = np.zeros((image_height,image_width))
