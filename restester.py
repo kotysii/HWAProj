@@ -1,6 +1,8 @@
 from Functions.ResTest import restest
 import numpy as np
 
+# tester to see the effect of circle resolution on the accuracy of the program
+
 res = range(1, 100, 1);
 accuracy = []
 
