@@ -11,13 +11,9 @@ start_time = time.time() #time of start                                         
 file_location = ["/home/dan/HWAProj/images/realnoiseless.bmp", "/home/dan/HWAProj/images/ArtificialCircle.bmp","/home/dan/Pictures/tula.bmp","/home/dan/HWAProj/images/teste.bmp", "/home/dan/DIPProj/images/ImageProcessingDemo.bmp", "/home/dan/DIPProj/images/dot.bmp","/home/dan/DIPProj/images/artific4px.bmp","/home/dan/HWAProj/images/artific4xmulti.bmp","/home/dan/DIPProj/images/artific4xmultibigger.bmp","/home/dan/DIPProj/images/artificialnoise.bmp", "/home/dan/HWAProj/images/IRReportTest.bmp", "/home/dan/HWAProj/images/test3.bmp"]
 usedimage = file_location[11]
 
-#input image must have specific edge widths so as to allow for the circle threshold to be representative
-
 image_width, image_height, image_offset = image_props(usedimage) #file import function, returns 2d array of the grayscale image (from importfun)
 
-#TODO need to have this work for white on black not other way around
-
-#### Paramater #####
+#### Parameter #####
 threshold = 40          # grayscale threshold
 radius_range = 1
 radius_start = 3
@@ -50,8 +46,6 @@ edgeslength = len(edges)
 print("%s edges to evaluate, so be patient" %edgeslength)
 print("radius range of %s" %radius_range)
 
-# TODO have resolution of Sin/Cos change according to the the radius
-
 # for every radius being evaluated
 # for every edge point:
 # draw circle (circle_coords)
@@ -83,6 +77,8 @@ print("hough duration time: ", time.time()-circlegenerationtime)
 
 maxi = np.amax(accumulator) #max value in array
 
+#
+
 localmaxcoords = []
 planemaxcoords = []
 r=radius_start
@@ -103,7 +99,7 @@ while rar < radius_range:
 
 
 
-#
+######################## Plotting ###############################
 
 print("You have", len(localmaxcoords), "circles with centre points at the following coordinates:\n", localmaxcoords)
 
